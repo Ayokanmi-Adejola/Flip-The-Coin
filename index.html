@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      href="resources/favicon.ico"
+      type="image/x-icon"
+      sizes="96x96"
+    />
+
+    <title>Flip the coin | devChallenges.io</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: gainsboro;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px;
+        color: #333333;
+      }
+
+      .container {
+        text-align: center;
+        max-width: 600px;
+        width: 100%;
+      }
+
+      .title {
+        font-size: 48px;
+        font-weight: 700;
+        color: #333333;
+        margin-bottom: 16px;
+        line-height: 1.2;
+      }
+
+      .subtitle {
+        font-size: 18px;
+        color: #828282;
+        margin-bottom: 80px;
+        font-weight: 400;
+      }
+
+      .coin-area {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 80px;
+      }
+
+      .coin {
+        width: 200px;
+        height: 200px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        position: relative;
+        margin-bottom: 24px;
+        perspective: 1000px;
+      }
+
+      .coin:hover {
+        transform: scale(1.02);
+      }
+
+      .coin.flipping {
+        animation: coinFlip 1s ease-in-out;
+      }
+
+      @keyframes coinFlip {
+        0% { transform: rotateY(0deg); }
+        50% { transform: rotateY(90deg) scale(1.05); }
+        100% { transform: rotateY(180deg); }
+      }
+
+      .coin-face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        transition: transform 0.6s;
+      }
+
+      .coin-face img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .heads {
+        transform: rotateY(0deg);
+      }
+
+      .tails {
+        transform: rotateY(180deg);
+      }
+
+      .coin.show-tails .heads {
+        transform: rotateY(180deg);
+      }
+
+      .coin.show-tails .tails {
+        transform: rotateY(0deg);
+      }
+
+      .shadow {
+        width: 120px;
+        height: 10px;
+        opacity: 0.2;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 24px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 60px;
+      }
+
+      .btn {
+        padding: 16px 32px;
+        border: 2px solid #E0E0E0;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        min-width: 120px;
+        background: #FFFFFF;
+        color: #333333;
+        font-family: inherit;
+      }
+
+      .btn:hover {
+        border-color: #BDBDBD;
+        background: #F5F5F5;
+        transform: translateY(-1px);
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .result {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333333;
+        min-height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .author-info {
+        font-size: 14px;
+        text-align: center;
+        color: #828282;
+        margin-top: 60px;
+      }
+
+      .author-info a {
+        color: #828282;
+        text-decoration: none;
+      }
+
+      .author-info a:hover {
+        text-decoration: underline;
+      }
+
+      /* Responsive Design - Tablet */
+      @media (max-width: 1024px) {
+        .title {
+          font-size: 40px;
+        }
+
+        .coin {
+          width: 180px;
+          height: 180px;
+        }
+
+        .shadow {
+          width: 108px;
+        }
+
+        .buttons {
+          gap: 20px;
+        }
+      }
+
+      /* Responsive Design - Mobile */
+      @media (max-width: 412px) {
+        body {
+          padding: 24px 16px;
+        }
+
+        .title {
+          font-size: 32px;
+          margin-bottom: 12px;
+        }
+
+        .subtitle {
+          font-size: 16px;
+          margin-bottom: 60px;
+        }
+
+        .coin {
+          width: 160px;
+          height: 160px;
+          margin-bottom: 20px;
+        }
+
+        .shadow {
+          width: 96px;
+        }
+
+        .coin-area {
+          margin-bottom: 60px;
+        }
+
+        .buttons {
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+          margin-bottom: 40px;
+        }
+
+        .btn {
+          width: 100%;
+          max-width: 280px;
+          padding: 14px 24px;
+          font-size: 16px;
+        }
+
+        .result {
+          font-size: 20px;
+        }
+
+        .author-info {
+          margin-top: 40px;
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title">Flip the Coin</h1>
+      <p class="subtitle">Press the coin or the button to flip the coin</p>
+
+      <div class="coin-area">
+        <div class="coin" id="coin" onclick="flipCoin('random')">
+          <div class="coin-face heads">
+            <img src="resources/heads.svg" alt="Heads">
+          </div>
+          <div class="coin-face tails">
+            <img src="resources/tails.svg" alt="Tails">
+          </div>
+        </div>
+        <img src="resources/shadow.svg" alt="Shadow" class="shadow">
+      </div>
+
+      <div class="buttons">
+        <button class="btn" onclick="flipCoin('heads')" id="headsBtn">Head</button>
+        <button class="btn" onclick="flipCoin('tails')" id="tailsBtn">Tail</button>
+        <button class="btn" onclick="flipCoin('random')" id="randomBtn">Random</button>
+      </div>
+
+      <div class="result" id="result"></div>
+    </div>
+
+    <div class="author-info">
+      Coded by <a href="#">Ayokanmi Adejola</a> | Challenge by
+      <a href="https://www.devchallenges.io?ref=challenge" target="_blank"
+        >devChallenges.io</a
+      >.
+    </div>
+
+    <script>
+      let isFlipping = false;
+
+      function flipCoin(choice) {
+        if (isFlipping) return;
+
+        isFlipping = true;
+        const coin = document.getElementById('coin');
+        const result = document.getElementById('result');
+        const buttons = document.querySelectorAll('.btn');
+
+        // Disable buttons during flip
+        buttons.forEach(btn => btn.disabled = true);
+
+        // Add flipping animation
+        coin.classList.add('flipping');
+        result.textContent = '';
+
+        // Determine result
+        let finalResult;
+        if (choice === 'random') {
+          finalResult = Math.random() < 0.5 ? 'heads' : 'tails';
+        } else {
+          finalResult = choice;
+        }
+
+        // Show result after animation
+        setTimeout(() => {
+          coin.classList.remove('flipping');
+
+          if (finalResult === 'heads') {
+            coin.classList.remove('show-tails');
+            result.textContent = 'Head';
+          } else {
+            coin.classList.add('show-tails');
+            result.textContent = 'Tail';
+          }
+
+          // Re-enable buttons
+          buttons.forEach(btn => btn.disabled = false);
+          isFlipping = false;
+        }, 1000);
+      }
+
+      // Initialize with heads showing
+      document.addEventListener('DOMContentLoaded', function() {
+        const coin = document.getElementById('coin');
+        coin.classList.remove('show-tails');
+      });
+    </script>
+  </body>
+</html>
