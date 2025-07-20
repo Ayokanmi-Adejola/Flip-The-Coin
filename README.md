@@ -1,8 +1,6 @@
 <h1 align="center">Flip The Coin Game | devChallenges</h1>
 
-<div align="center">
-   Solution for a challenge <a href="https://devchallenges.io/challenge/flip-the-coin" target="_blank">Flip The Coin</a> from <a href="http://devchallenges.io" target="_blank">devChallenges.io</a>.
-</div>
+
 
 
 
