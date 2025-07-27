@@ -8,7 +8,7 @@
 
 This project is a responsive coin flip game built as part of the devChallenges.io coding challenge. The game allows users to flip a virtual coin and see animated results, with options to force specific outcomes or let chance decide.
 
-### Screenshot
+
 
 ![Flip The Coin Game](./thumbnail.jpg)
 
