@@ -77,7 +77,7 @@ This coin flip game includes the following features:
 - Coin graphics and shadow SVGs provided as part of the challenge resources
 - Inter font family from [Google Fonts](https://fonts.google.com/)
 
-## Author
+## 👤 Author
 
 - **Coded by**: Ayokanmi Adejola
 - **Challenge by**: [devChallenges.io](https://devchallenges.io/)
