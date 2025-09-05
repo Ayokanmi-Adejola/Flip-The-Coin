@@ -1,7 +1,7 @@
 <h1 align="center">Flip The Coin Game | devChallenges</h1>
 
 
-
+![Flip The Coin Game](./thumbnail.jpg)
 
 
 ## Overview
@@ -9,9 +9,9 @@
 This project is a responsive coin flip game built as part of the devChallenges.io coding challenge. The game allows users to flip a virtual coin and see animated results, with options to force specific outcomes or let chance decide.
 
 
-
-![Flip The Coin Game](./thumbnail.jpg)
-
+| Desktop | Tablet | Mobile |
+| ------- | ------ | ------ |
+| ![Desktop](./design/Desktop_1350px.jpg) | ![Tablet](./design/Tablet_1024px.jpg) | ![Mobile](./design/Mobile_412px.jpg) |
 
 ### What I learned
 
